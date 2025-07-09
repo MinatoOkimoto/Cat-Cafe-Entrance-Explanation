@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>おやつの選択</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #fefdf9; }
+    h1 { font-size: 24px; }
+    img { max-width: 100%; margin: 10px 0; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    label { display: block; margin: 10px 0 5px; }
+    input[type="number"] { padding: 8px; width: 100%; margin-bottom: 10px; }
+    .note { margin: 10px 0; color: #555; }
+    .footer { margin-top: 20px; }
+    button { padding: 10px 20px; background: #77c; color: white; border: none; border-radius: 6px; font-size: 16px; }
+  </style>
+</head>
+<body>
+
+  <h1>🐾 おやつの選択</h1>
+
+  <!-- おやつ紹介画像（PDFをJPG/PNGに変換した画像ファイル名にしてください） -->
+  <img src="./image/snack_menu.png" alt="ネコおやつの紹介">
+  <img src="./image/ticket_info.png" alt="チケットの説明">
+
+  <!-- 説明文 -->
+  <p class="note">おやつの購入は<strong>任意</strong>です。店内でも現金でご購入いただけます。</p>
+  <p class="note">※受付での両替も可能です。スタッフまでお声かけください。</p>
+
+  <!-- フォーム -->
+  <form id="snackForm">
+    <label for="snack200">200円おやつ（カリカリ）</label>
+    <input type="number" id="snack200" name="snack200" value="0" min="0">
+
+    <label for="snack500">500円おやつ（フラッペ）</label>
+    <input type="number" id="snack500" name="snack500" value="0" min="0">
+
+    <label for="ticket600">600円セット（カリカリ＋フラッペ）</label>
+    <input type="number" id="ticket600" name="ticket600" value="0" min="0">
+
+    <label for="ticket1000">1000円回数券（12枚綴り）</label>
+    <input type="number" id="ticket1000" name="ticket1000" value="0" min="0">
+
+    <div class="footer">
+      <button type="submit">内容を確認</button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById("snackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = {
+        "200円おやつ": document.getElementById("snack200").value,
+        "500円おやつ": document.getElementById("snack500").value,
+        "600円セット": document.getElementById("ticket600").value,
+        "1000円回数券": document.getElementById("ticket1000").value
+      };
+      alert("入力ありがとうございます。\n" +
+        "以下の内容が選択されました：\n" +
+        Object.entries(data).map(([k,v]) => `${k}：${v}個`).join("\n")
+      );
+    });
+  </script>
+
+</body>
+</html>

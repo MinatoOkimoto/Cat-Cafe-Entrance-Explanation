@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>入園手続き</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #fff8f0; }
+    h1 { font-size: 24px; }
+    img { max-width: 100%; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    label { display: block; margin: 10px 0 5px; }
+    input { padding: 8px; width: 100%; margin-bottom: 10px; }
+    .error { color: red; font-weight: bold; }
+    button { padding: 10px 20px; background: #f77; color: white; border: none; border-radius: 6px; font-size: 16px; }
+    button:disabled { background: #ccc; }
+  </style>
+</head>
+<body>
+
+  <h1>🐾 入園手続き</h1>
+
+  <!-- 入園料金画像（PDFから変換した画像） -->
+  <img src="./image/price_info.png" alt="入園料金と営業時間案内画像">
+
+  <!-- 入園条件記載 -->
+  <ul>
+    <li>最低料金：900円／30分</li>
+    <li>延長料金：10分ごとに250円</li>
+    <li>最大料金：平日2100円／休日3100円</li>
+    <li>ワンドリンクオーダー制（3歳以下は任意）</li>
+    <li>3歳以下は入園料無料</li>
+  </ul>
+
+  <h2>人数を入力してください</h2>
+
+  <label>3歳以下の子ども（無料）</label>
+  <input type="number" id="age3" value="0" min="0">
+
+  <label>4〜12歳の子ども</label>
+  <input type="number" id="age4to12" value="0" min="0">
+
+  <label>13歳以上（大人）</label>
+  <input type="number" id="age13" value="0" min="0">
+
+  <div id="error" class="error"></div>
+
+  <button id="nextBtn" disabled>次へ（おやつの選択）</button>
+
+  <script>
+    const age3 = document.getElementById("age3");
+    const age4to12 = document.getElementById("age4to12");
+    const age13 = document.getElementById("age13");
+    const error = document.getElementById("error");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function validate() {
+      const num3 = parseInt(age3.value) || 0;
+      const num4to12 = parseInt(age4to12.value) || 0;
+      const num13 = parseInt(age13.value) || 0;
+
+      const totalKids = num3 + num4to12;
+      const guardiansNeeded = Math.ceil(totalKids / 3);
+
+      if (totalKids > 0 && num13 < guardiansNeeded) {
+        error.textContent = "保護者1人につき、お子様は3人までしか入れません。";
+        nextBtn.disabled = true;
+      }
+      else if (num3 == 0 && num4to12 == 0 && num13 == 0){
+        error.textContent = "入園人数を入力してください。";
+        nextBtn.disabled = true;
+      } else {
+        error.textContent = "";
+        nextBtn.disabled = false;
+      }
+    }
+
+    age3.addEventListener("input", validate);
+    age4to12.addEventListener("input", validate);
+    age13.addEventListener("input", validate);
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      // 次のページに遷移
+      window.location.href = "snack.html";
+    });
+
+    validate();
+  </script>
+
+</body>
+</html>

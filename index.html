@@ -1,50 +1,72 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>入園手続き</title>
   <style>
     body { font-family: sans-serif; padding: 20px; background: #fff8f0; }
     h1 { font-size: 24px; }
-    img { max-width: 100%; margin-bottom: 10px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    img { max-width: 100%; margin-bottom: 10px; }
     label { display: block; margin: 10px 0 5px; }
     input { padding: 8px; width: 100%; margin-bottom: 10px; }
     .error { color: red; font-weight: bold; }
-    button { padding: 10px 20px; background: #f77; color: white; border: none; border-radius: 6px; font-size: 16px; }
-    button:disabled { background: #ccc; }
+    button {
+      padding: 10px 20px;
+      background: #f77;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button:disabled {
+      background: #ccc;
+    }
+    #langSelect {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
 
-  <h1>🐾 入園手続き</h1>
+  <select id="langSelect">
+    <option value="ar">العربية</option>
+    <option value="de">Deutsch</option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="it">Italiano</option>
+    <option value="ja">日本語</option>
+    <option value="ko">한국어</option>
+    <option value="pt">Português</option>
+    <option value="ru">Русский</option>
+    <option value="zh">中文</option>
+  </select>
 
-  <!-- 入園料金画像（PDFから変換した画像） -->
-  <img src="./image/price_info.png" alt="入園料金と営業時間案内画像">
+  <h1 id="title">入園手続き</h1>
 
-  <!-- 入園条件記載 -->
-  <ul>
-    <li>最低料金：900円／30分</li>
-    <li>延長料金：10分ごとに250円</li>
-    <li>最大料金：平日2100円／休日3100円</li>
-    <li>ワンドリンクオーダー制（3歳以下は任意）</li>
-    <li>3歳以下は入園料無料</li>
+  <img src="./image/price_info.png" alt="入園料金の案内画像">
+
+  <ul id="priceList">
+    <li data-translate="min-price">最低料金：900円／30分</li>
+    <li data-translate="extension-fee">延長料金：10分ごとに250円</li>
+    <li data-translate="drink-order">ワンドリンクオーダー制（3歳以下は任意）</li>
   </ul>
 
-  <h2>人数を入力してください</h2>
+  <h2 id="inputHeader">人数を入力してください</h2>
 
-  <label>3歳以下の子ども（無料）</label>
+  <label id="labelAge3">3歳以下の子ども（無料）</label>
   <input type="number" id="age3" value="0" min="0">
 
-  <label>4〜12歳の子ども</label>
+  <label id="labelAge4to12">4〜12歳の子ども</label>
   <input type="number" id="age4to12" value="0" min="0">
 
-  <label>13歳以上（大人）</label>
+  <label id="labelAge13">13歳以上（大人）</label>
   <input type="number" id="age13" value="0" min="0">
 
   <div id="error" class="error"></div>
 
-  <button id="nextBtn" disabled>次へ（おやつの選択）</button>
+  <button id="nextBtn" disabled>次へ進む</button>
 
   <script>
     const age3 = document.getElementById("age3");
@@ -52,6 +74,57 @@
     const age13 = document.getElementById("age13");
     const error = document.getElementById("error");
     const nextBtn = document.getElementById("nextBtn");
+
+    const langSelect = document.getElementById("langSelect");
+
+    const translations = {
+      ja: {
+        title: "入園手続き",
+        inputHeader: "人数を入力してください",
+        labelAge3: "3歳以下の子ども（無料）",
+        labelAge4to12: "4〜12歳の子ども",
+        labelAge13: "13歳以上（大人）",
+        error: "18歳以上の保護者は12歳以下3人につき1人必要です。",
+        next: "次へ進む"
+      },
+      en: {
+        title: "Admission Procedure",
+        inputHeader: "Enter the number of people",
+        labelAge3: "Children under 3 (free)",
+        labelAge4to12: "Children aged 4–12",
+        labelAge13: "Age 13 or older (Adult)",
+        error: "One adult is required per 3 children under 13.",
+        next: "Proceed"
+      },
+      zh: {
+        title: "入园手续",
+        inputHeader: "请输入人数",
+        labelAge3: "3岁以下儿童（免费）",
+        labelAge4to12: "4至12岁儿童",
+        labelAge13: "13岁以上（成人）",
+        error: "每3位12岁以下儿童需一位成人陪同。",
+        next: "下一步"
+      },
+      ko: {
+        title: "입장 절차",
+        inputHeader: "인원을 입력해주세요",
+        labelAge3: "3세 이하 어린이 (무료)",
+        labelAge4to12: "4~12세 어린이",
+        labelAge13: "13세 이상 (성인)",
+        error: "12세 이하 3명당 성인 1명이 필요합니다.",
+        next: "다음으로"
+      },
+      fr: {
+        title: "Procédure d'entrée",
+        inputHeader: "Veuillez saisir le nombre de personnes",
+        labelAge3: "Enfant de moins de 3 ans (gratuit)",
+        labelAge4to12: "Enfant de 4 à 12 ans",
+        labelAge13: "13 ans et plus (adulte)",
+        error: "1 adulte requis pour 3 enfants de moins de 13 ans.",
+        next: "Suivant"
+      },
+      // 他言語も同様に追加可能
+    };
 
     function validate() {
       const num3 = parseInt(age3.value) || 0;
@@ -62,11 +135,7 @@
       const guardiansNeeded = Math.ceil(totalKids / 3);
 
       if (totalKids > 0 && num13 < guardiansNeeded) {
-        error.textContent = "保護者1人につき、お子様は3人までしか入れません。";
-        nextBtn.disabled = true;
-      }
-      else if (num3 == 0 && num4to12 == 0 && num13 == 0){
-        error.textContent = "入園人数を入力してください。";
+        error.textContent = translations[langSelect.value].error || translations["ja"].error;
         nextBtn.disabled = true;
       } else {
         error.textContent = "";
@@ -74,17 +143,42 @@
       }
     }
 
+    function applyTranslation(lang) {
+      const t = translations[lang] || translations["ja"];
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("inputHeader").textContent = t.inputHeader;
+      document.getElementById("labelAge3").textContent = t.labelAge3;
+      document.getElementById("labelAge4to12").textContent = t.labelAge4to12;
+      document.getElementById("labelAge13").textContent = t.labelAge13;
+      document.getElementById("nextBtn").textContent = t.next;
+      validate(); // エラーメッセージも言語対応
+    }
+
     age3.addEventListener("input", validate);
     age4to12.addEventListener("input", validate);
     age13.addEventListener("input", validate);
 
-    document.getElementById("nextBtn").addEventListener("click", () => {
-      // 次のページに遷移
+    langSelect.addEventListener("change", () => {
+      const selectedLang = langSelect.value;
+      localStorage.setItem("lang", selectedLang);
+      applyTranslation(selectedLang);
+    });
+
+    // 初期言語設定
+    const savedLang = localStorage.getItem("lang") || "ja";
+    langSelect.value = savedLang;
+    applyTranslation(savedLang);
+
+    nextBtn.addEventListener("click", () => {
+      localStorage.setItem("age3", age3.value);
+      localStorage.setItem("age4to12", age4to12.value);
+      localStorage.setItem("age13", age13.value);
       window.location.href = "snack.html";
     });
 
     validate();
   </script>
+  <script src="lang.js"></script>
 
 </body>
 </html>

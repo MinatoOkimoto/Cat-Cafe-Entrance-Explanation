@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>入園完了画面</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f5fff5;
+    }
+    h1 {
+      font-size: 24px;
+      color: #2d7a00;
+    }
+    .notice {
+      font-size: 18px;
+      color: #c00;
+      margin-bottom: 10px;
+    }
+    .summary {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    .item {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .label {
+      display: inline-block;
+      min-width: 160px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✅ 入園手続きが完了しました</h1>
+
+  <p class="notice">この画面をスタッフにご提示ください。</p>
+  <p class="notice" style="color: #b00;">※この画面を閉じると、入力情報は消えてしまう場合があります。<br>
+  必要に応じてスクリーンショットを保存してください。</p>
+
+  <h2>アンケート内容まとめ</h2>
+
+  <div class="summary">
+    <div class="item"><span class="label">👶 3歳以下：</span> <span id="age3">-</span> 名</div>
+    <div class="item"><span class="label">🧒 4〜12歳：</span> <span id="age4to12">-</span> 名</div>
+    <div class="item"><span class="label">🧑 13歳以上：</span> <span id="age13">-</span> 名</div>
+    <hr>
+    <div class="item"><span class="label">🍘 200円おやつ：</span> <span id="snack200">-</span> 個</div>
+    <div class="item"><span class="label">🍧 500円おやつ：</span> <span id="snack500">-</span> 個</div>
+    <div class="item"><span class="label">🥤 600円セット：</span> <span id="ticket600">-</span> 個</div>
+    <div class="item"><span class="label">🎫 1000円回数券：</span> <span id="ticket1000">-</span> 個</div>
+  </div>
+
+  <script>
+    function displayData(id, key) {
+      const value = localStorage.getItem(key);
+      document.getElementById(id).textContent = value !== null ? value : "0";
+    }
+
+    displayData("age3", "age3");
+    displayData("age4to12", "age4to12");
+    displayData("age13", "age13");
+
+    displayData("snack200", "snack200");
+    displayData("snack500", "snack500");
+    displayData("ticket600", "ticket600");
+    displayData("ticket1000", "ticket1000");
+  </script>
+
+</body>
+</html>

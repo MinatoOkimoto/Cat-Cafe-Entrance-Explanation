@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>首輪の説明</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f9f9ff; }
+    h1 { font-size: 24px; margin-bottom: 10px; }
+    .collar-box { margin-bottom: 15px; padding: 10px; border-left: 6px solid; background: #fff; border-radius: 6px; }
+    .red { border-color: red; }
+    .blue { border-color: blue; }
+    .yellow { border-color: goldenrod; }
+    .none { border-color: gray; }
+    .collar-box span { font-weight: bold; font-size: 16px; }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐾 首輪の色について</h1>
+
+  <div class="collar-box red">
+    <span>🔴 赤色の首輪：</span> 人に慣れていて触られるのが好きなネコです。
+  </div>
+
+  <div class="collar-box blue">
+    <span>🔵 青色の首輪：</span> 少し慎重なネコです。優しくそっと接してください。
+  </div>
+
+  <div class="collar-box yellow">
+    <span>🟡 黄色の首輪：</span> 環境に慣れていないネコです。触らないで見守ってください。
+  </div>
+
+  <div class="collar-box none">
+    <span>⚪️ 首輪なし：</span> 特別な配慮が必要なネコです。スタッフにお声がけください。
+  </div>
+
+  <button id="confirmBtn">確認しました</button>
+
+  <script>
+    document.getElementById("confirmBtn").addEventListener("click", function() {
+      window.location.href = "howto_enter.html"; // ← 次のページに差し替えてください
+    });
+  </script>
+
+</body>
+</html>

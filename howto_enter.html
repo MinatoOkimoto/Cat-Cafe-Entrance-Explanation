@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>入園方法のご案内</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f9fff9; }
+    h1 { font-size: 24px; margin-bottom: 15px; }
+    .item { margin-bottom: 15px; padding: 10px; background: #fff; border-left: 5px solid #5a5; border-radius: 6px; }
+    label { display: block; margin-top: 8px; }
+    input[type="checkbox"] { margin-right: 8px; }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐾 入園方法のご案内</h1>
+
+  <div class="item">
+    <strong>① 受付でこの画面を提示してください。</strong>
+    <label><input type="checkbox" class="check"> 内容を確認しました</label>
+  </div>
+
+  <div class="item">
+    <strong>② ドリンクの注文をお願いします（ワンドリンク制です）。</strong>
+    <label><input type="checkbox" class="check"> 内容を確認しました</label>
+  </div>
+
+  <div class="item">
+    <strong>③ ドリンクベルはスタッフ呼び出し用ではありません。</strong><br>
+    鳴らすとネコが驚いてしまうためご遠慮ください。
+    <label><input type="checkbox" class="check"> 内容を確認しました</label>
+  </div>
+
+  <div class="item">
+    <strong>④ ロッカーをご利用ください。</strong><br>
+    貴重品・大きな荷物はロッカーに入れてください。
+    <label><input type="checkbox" class="check"> 内容を確認しました</label>
+  </div>
+
+  <div class="item">
+    <strong>⑤ スリッパに履き替えてください。</strong><br>
+    入口でスリッパに履き替えてから入園してください。
+    <label><input type="checkbox" class="check"> 内容を確認しました</label>
+  </div>
+
+  <div class="item">
+    <strong>⑥ 二重扉の操作にご注意ください。</strong><br>
+    必ず片方の扉を閉めてから次を開けてください。脱走防止のためご協力ください。
+    <label><input type="checkbox" class="check"> 内容を確認しました</label>
+  </div>
+
+  <button id="finishBtn" disabled>すべて確認しました → 入園完了へ</button>
+
+  <script>
+    const checkboxes = document.querySelectorAll(".check");
+    const finishBtn = document.getElementById("finishBtn");
+
+    function validate() {
+      const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+      finishBtn.disabled = !allChecked;
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener("change", validate));
+
+    finishBtn.addEventListener("click", () => {
+      window.location.href = "final.html"; // ← 最後の完了画面に変更してください
+    });
+  </script>
+
+</body>
+</html>

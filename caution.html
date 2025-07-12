@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>注意事項・免責事項</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #fffef9; }
+    h1 { font-size: 24px; margin-bottom: 10px; }
+    ul { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 10px; }
+    .checkbox { margin-bottom: 10px; }
+    button {
+      padding: 10px 20px; background: #6666cc; color: white;
+      border: none; border-radius: 6px; font-size: 16px;
+    }
+    button:disabled { background: #ccc; }
+  </style>
+</head>
+<body>
+
+  <h1>⚠️ 注意事項・免責事項の確認</h1>
+
+  <ul>
+    <li>店内では走らないようお願いします。</li>
+    <li>ネコを無理に抱っこしたり、追いかけたりしないでください。</li>
+    <li>飲食物の持ち込みは禁止です。</li>
+    <li>3歳以下のお子さまの安全は、必ず保護者が見守ってください。</li>
+    <li>アレルギーなど健康に不安がある方は自己責任でご入園ください。</li>
+  </ul>
+
+  <form id="checkForm">
+    <label class="checkbox">
+      <input type="checkbox" id="check1"> 店内のルールを守ることに同意します
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" id="check2"> ネコへの接し方を理解し、丁寧に接します
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" id="check3"> 自己責任での利用に同意します
+    </label>
+
+    <button type="submit" id="nextBtn" disabled>次へ進む</button>
+  </form>
+
+  <script>
+    const check1 = document.getElementById("check1");
+    const check2 = document.getElementById("check2");
+    const check3 = document.getElementById("check3");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function validate() {
+      if (check1.checked && check2.checked && check3.checked) {
+        nextBtn.disabled = false;
+      } else {
+        nextBtn.disabled = true;
+      }
+    }
+
+    check1.addEventListener("change", validate);
+    check2.addEventListener("change", validate);
+    check3.addEventListener("change", validate);
+
+    document.getElementById("checkForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      // 次のページに遷移（例：最終確認 or チェックイン）
+      window.location.href = "collar.html";
+    });
+  </script>
+
+</body>
+</html>

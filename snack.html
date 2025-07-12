@@ -43,24 +43,24 @@
     <input type="number" id="ticket1000" name="ticket1000" value="0" min="0">
 
     <div class="footer">
-      <button type="submit">内容を確認</button>
+      <button type="button" id="toCaution">次へ進む</button>
     </div>
+
   </form>
 
-  <script>
-    document.getElementById("snackForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const data = {
-        "200円おやつ": document.getElementById("snack200").value,
-        "500円おやつ": document.getElementById("snack500").value,
-        "600円セット": document.getElementById("ticket600").value,
-        "1000円回数券": document.getElementById("ticket1000").value
-      };
-      alert("入力ありがとうございます。\n" +
-        "以下の内容が選択されました：\n" +
-        Object.entries(data).map(([k,v]) => `${k}：${v}個`).join("\n")
-      );
+<script>
+    document.getElementById("toCaution").addEventListener("click", function() {
+      window.location.href = "caution.html";
     });
+
+    document.getElementById("toCaution").addEventListener("click", function() {
+    localStorage.setItem("snack200", document.getElementById("snack200").value);
+    localStorage.setItem("snack500", document.getElementById("snack500").value);
+    localStorage.setItem("ticket600", document.getElementById("ticket600").value);
+    localStorage.setItem("ticket1000", document.getElementById("ticket1000").value);
+    window.location.href = "caution.html";
+});
+
   </script>
 
 </body>

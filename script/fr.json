@@ -3,3 +3,10 @@
     "extension-fee": "Frais de prolongation : 250 yens par 10 minutes",
     "drink-order": "Commande d'une boisson requise (facultative pour les enfants de moins de 3 ans)"
 }
+title: "Procédure d'entrée",
+        inputHeader: "Veuillez saisir le nombre de personnes",
+        labelAge3: "Enfant de moins de 3 ans (gratuit)",
+        labelAge4to12: "Enfant de 4 à 12 ans",
+        labelAge13: "13 ans et plus (adulte)",
+        error: "1 adulte requis pour 3 enfants de moins de 13 ans.",
+        next: "Suivant"

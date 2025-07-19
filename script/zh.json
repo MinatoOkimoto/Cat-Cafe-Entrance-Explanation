@@ -3,3 +3,10 @@
     "extension-fee": "延长费：250 日元/10 分钟",
     "drink-order": "需要点一杯饮料（3 岁以下儿童可选）"
 }
+title: "入园手续",
+        inputHeader: "请输入人数",
+        labelAge3: "3岁以下儿童（免费）",
+        labelAge4to12: "4至12岁儿童",
+        labelAge13: "13岁以上（成人）",
+        error: "每3位12岁以下儿童需一位成人陪同。",
+        next: "下一步"

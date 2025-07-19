@@ -36,14 +36,14 @@
     <option value="en">English</option>
     <option value="fr">Français</option>
     <option value="it">Italiano</option>
-    <option value="ja">日本語</option>
+    <option value="ja" seleced>日本語</option>
     <option value="ko">한국어</option>
     <option value="pt">Português</option>
     <option value="ru">Русский</option>
     <option value="zh">中文</option>
   </select>
 
-  <h1 id="title">入園手続き</h1>
+  <h1 id="title" data-translate="title">入園手続き</h1>
 
   <img src="./image/price_info.png" alt="入園料金の案内画像">
 
@@ -53,132 +53,23 @@
     <li data-translate="drink-order">ワンドリンクオーダー制（3歳以下は任意）</li>
   </ul>
 
-  <h2 id="inputHeader">人数を入力してください</h2>
+  <h2 id="inputHeader" data-translate="inputHeader">人数を入力してください</h2>
 
-  <label id="labelAge3">3歳以下の子ども（無料）</label>
+  <label id="labelAge3" data-translate="labelAge3">3歳以下の子ども</label>
   <input type="number" id="age3" value="0" min="0">
 
-  <label id="labelAge4to12">4〜12歳の子ども</label>
+  <label id="labelAge4to12" data-translate="labelAge4to12">4〜12歳の子ども</label>
   <input type="number" id="age4to12" value="0" min="0">
 
-  <label id="labelAge13">13歳以上（大人）</label>
+  <label id="labelAge13" data-translate="labelAge13">13歳以上</label>
   <input type="number" id="age13" value="0" min="0">
 
   <div id="error" class="error"></div>
 
-  <button id="nextBtn" disabled>次へ進む</button>
+  <button id="nextBtn" data-translate="nextBtn" disabled>次へ進む</button>
 
-  <script>
-    const age3 = document.getElementById("age3");
-    const age4to12 = document.getElementById("age4to12");
-    const age13 = document.getElementById("age13");
-    const error = document.getElementById("error");
-    const nextBtn = document.getElementById("nextBtn");
-
-    const langSelect = document.getElementById("langSelect");
-
-    const translations = {
-      ja: {
-        title: "入園手続き",
-        inputHeader: "人数を入力してください",
-        labelAge3: "3歳以下の子ども（無料）",
-        labelAge4to12: "4〜12歳の子ども",
-        labelAge13: "13歳以上（大人）",
-        error: "18歳以上の保護者は12歳以下3人につき1人必要です。",
-        next: "次へ進む"
-      },
-      en: {
-        title: "Admission Procedure",
-        inputHeader: "Enter the number of people",
-        labelAge3: "Children under 3 (free)",
-        labelAge4to12: "Children aged 4–12",
-        labelAge13: "Age 13 or older (Adult)",
-        error: "One adult is required per 3 children under 13.",
-        next: "Proceed"
-      },
-      zh: {
-        title: "入园手续",
-        inputHeader: "请输入人数",
-        labelAge3: "3岁以下儿童（免费）",
-        labelAge4to12: "4至12岁儿童",
-        labelAge13: "13岁以上（成人）",
-        error: "每3位12岁以下儿童需一位成人陪同。",
-        next: "下一步"
-      },
-      ko: {
-        title: "입장 절차",
-        inputHeader: "인원을 입력해주세요",
-        labelAge3: "3세 이하 어린이 (무료)",
-        labelAge4to12: "4~12세 어린이",
-        labelAge13: "13세 이상 (성인)",
-        error: "12세 이하 3명당 성인 1명이 필요합니다.",
-        next: "다음으로"
-      },
-      fr: {
-        title: "Procédure d'entrée",
-        inputHeader: "Veuillez saisir le nombre de personnes",
-        labelAge3: "Enfant de moins de 3 ans (gratuit)",
-        labelAge4to12: "Enfant de 4 à 12 ans",
-        labelAge13: "13 ans et plus (adulte)",
-        error: "1 adulte requis pour 3 enfants de moins de 13 ans.",
-        next: "Suivant"
-      },
-      // 他言語も同様に追加可能
-    };
-
-    function validate() {
-      const num3 = parseInt(age3.value) || 0;
-      const num4to12 = parseInt(age4to12.value) || 0;
-      const num13 = parseInt(age13.value) || 0;
-
-      const totalKids = num3 + num4to12;
-      const guardiansNeeded = Math.ceil(totalKids / 3);
-
-      if (totalKids > 0 && num13 < guardiansNeeded) {
-        error.textContent = translations[langSelect.value].error || translations["ja"].error;
-        nextBtn.disabled = true;
-      } else {
-        error.textContent = "";
-        nextBtn.disabled = false;
-      }
-    }
-
-    function applyTranslation(lang) {
-      const t = translations[lang] || translations["ja"];
-      document.getElementById("title").textContent = t.title;
-      document.getElementById("inputHeader").textContent = t.inputHeader;
-      document.getElementById("labelAge3").textContent = t.labelAge3;
-      document.getElementById("labelAge4to12").textContent = t.labelAge4to12;
-      document.getElementById("labelAge13").textContent = t.labelAge13;
-      document.getElementById("nextBtn").textContent = t.next;
-      validate(); // エラーメッセージも言語対応
-    }
-
-    age3.addEventListener("input", validate);
-    age4to12.addEventListener("input", validate);
-    age13.addEventListener("input", validate);
-
-    langSelect.addEventListener("change", () => {
-      const selectedLang = langSelect.value;
-      localStorage.setItem("lang", selectedLang);
-      applyTranslation(selectedLang);
-    });
-
-    // 初期言語設定
-    const savedLang = localStorage.getItem("lang") || "ja";
-    langSelect.value = savedLang;
-    applyTranslation(savedLang);
-
-    nextBtn.addEventListener("click", () => {
-      localStorage.setItem("age3", age3.value);
-      localStorage.setItem("age4to12", age4to12.value);
-      localStorage.setItem("age13", age13.value);
-      window.location.href = "snack.html";
-    });
-
-    validate();
-  </script>
-  <script src="lang.js"></script>
-
+  <script type="module" src="./js/globals.js"></script>
+  <script type="module" src="./js/lang.js"></script>
+  <script type="module" src="./js/controle.js"></script>
 </body>
 </html>

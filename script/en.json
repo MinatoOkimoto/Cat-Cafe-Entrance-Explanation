@@ -1,5 +1,16 @@
 {
+    "title": "Admission Procedure",
     "min-price": "Minimum charge: 900 yen / 30 min.",
     "extension-fee": "Extension charge: 250 yen per 10 minutes",
-    "drink-order": "One drink order required (optional for children under 3 years old)"
+    "drink-order": "One drink order required (optional for children under 3 years old)",
+
+    "inputHeader": "Enter the number of people",
+
+    "labelAge3": "Children under 3",
+    "labelAge4to12": "hildren aged 4–12",
+    "labelAge13": "Age 13 or older",
+
+    "error": "The number of children entered must be accompanied by an adult 18 years of age or older",
+
+    "nextBtn": "Proceed"
 }

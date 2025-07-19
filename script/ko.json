@@ -3,3 +3,10 @@
     "extension-fee": "연장 요금: 10분당 250엔",
     "drink-order": "음료 주문 1개 필요(만 3세 미만 어린이는 선택 사항)"
 }
+title: "입장 절차",
+        inputHeader: "인원을 입력해주세요",
+        labelAge3: "3세 이하 어린이 (무료)",
+        labelAge4to12: "4~12세 어린이",
+        labelAge13: "13세 이상 (성인)",
+        error: "12세 이하 3명당 성인 1명이 필요합니다.",
+        next: "다음으로"

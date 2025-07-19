@@ -12,5 +12,7 @@
 
     "error": "The number of children entered must be accompanied by an adult 18 years of age or older",
 
-    "nextBtn": "Proceed"
+    "nextBtn": "Proceed",
+
+    "selectSnack": "Select Snack"
 }

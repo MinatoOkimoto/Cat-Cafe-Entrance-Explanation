@@ -1,4 +1,4 @@
-import translations from './globals.js';
+import { langSelect, initLangSelector, translations } from './globals.js';
 
 function validate() {
     const num3 = parseInt(age3.value) || 0;
@@ -27,7 +27,7 @@ function applyTranslation(lang) {
     //console.log(lang)
     //console.log(translations[lang])
     const t = translations[lang] || translations["ja"];
-    validate(); // エラーメッセージも言語対応
+    //validate(); // エラーメッセージも言語対応
 }
 
 const age3 = document.getElementById("age3");
@@ -36,24 +36,25 @@ const age13 = document.getElementById("age13");
 const error = document.getElementById("error");
 const nextBtn = document.getElementById("nextBtn");
 
-const langSelect = document.getElementById("langSelect");
-//console.log(langSelect.value)
+initLangSelector();
+validate(); // エラーメッセージも言語対応
+// 変更イベントのリスナー登録
+langSelect.addEventListener("change", () => {
+    const selectedLang = langSelect.value;
+    localStorage.setItem("lang", selectedLang);
+    applyTranslation(selectedLang);  // この関数が他で定義されている前提
+});
 
 // 言語がロードされたタイミングで applyTranslation を実行
 document.addEventListener("languageLoaded", (e) => {
   const lang = e.detail;
   applyTranslation(lang);
+  validate(); // エラーメッセージも言語対応
 });
 
 age3.addEventListener("input", validate);
 age4to12.addEventListener("input", validate);
 age13.addEventListener("input", validate);
-
-langSelect.addEventListener("change", () => {
-    const selectedLang = langSelect.value;
-    localStorage.setItem("lang", selectedLang);
-    applyTranslation(selectedLang);
-});
 
 nextBtn.addEventListener("click", () => {
     localStorage.setItem("age3", age3.value);

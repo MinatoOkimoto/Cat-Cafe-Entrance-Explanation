@@ -17,8 +17,20 @@
   </style>
 </head>
 <body>
+  <select id="langSelect">
+    <option value="ar">العربية</option>
+    <option value="de">Deutsch</option>
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="it">Italiano</option>
+    <option value="ja" seleced>日本語</option>
+    <option value="ko">한국어</option>
+    <option value="pt">Português</option>
+    <option value="ru">Русский</option>
+    <option value="zh">中文</option>
+  </select>
 
-  <h1>🐾 おやつの選択</h1>
+  <h1 data-translate="selectSnack">🐾 おやつの選択</h1>
 
   <!-- おやつ紹介画像（PDFをJPG/PNGに変換した画像ファイル名にしてください） -->
   <img src="./image/snack_menu.png" alt="ネコおやつの紹介">
@@ -50,20 +62,9 @@
 
   </form>
 
-<script>
-    document.getElementById("toCaution").addEventListener("click", function() {
-      window.location.href = "caution.html";
-    });
-
-    document.getElementById("toCaution").addEventListener("click", function() {
-    localStorage.setItem("snack200", document.getElementById("snack200").value);
-    localStorage.setItem("snack500", document.getElementById("snack500").value);
-    localStorage.setItem("ticket600", document.getElementById("ticket600").value);
-    localStorage.setItem("ticket1000", document.getElementById("ticket1000").value);
-    window.location.href = "caution.html";
-});
-
-  </script>
+  <script type="module" src="./js/globals.js"></script>
+  <script type="module" src="./js/lang.js"></script>
+  <script type="module" src="./js/snackController.js"></script>
 
 </body>
 </html>

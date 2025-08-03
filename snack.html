@@ -5,59 +5,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>おやつの選択</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #fefdf9; }
-    h1 { font-size: 24px; }
-    img { max-width: 100%; margin: 10px 0; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
-    label { display: block; margin: 10px 0 5px; }
-    input[type="number"] { padding: 8px; width: 100%; margin-bottom: 10px; }
-    .note { margin: 10px 0; color: #555; }
-    .footer { margin-top: 20px; }
-    button { padding: 10px 20px; background: #77c; color: white; border: none; border-radius: 6px; font-size: 16px; }
-  </style>
+  <link rel="stylesheet" href="./css/snack.css">
+  <link rel="stylesheet" href="./css/select_language.css">
 </head>
 <body>
-  <select id="langSelect">
-    <option value="ar">العربية</option>
-    <option value="de">Deutsch</option>
-    <option value="en">English</option>
-    <option value="fr">Français</option>
-    <option value="it">Italiano</option>
-    <option value="ja" seleced>日本語</option>
-    <option value="ko">한국어</option>
-    <option value="pt">Português</option>
-    <option value="ru">Русский</option>
-    <option value="zh">中文</option>
-  </select>
+  <div class="lang-select-container">
+    <span class="lang-label" data-translate="label-lang">Language：</span>
+    <select id="langSelect">
+      <!-- <option value="ar">العربية</option> -->
+      <!-- <option value="de">Deutsch</option> -->
+      <option value="en">English</option>
+      <!-- <option value="fr">Français</option> -->
+      <!-- <option value="it">Italiano</option> -->
+      <option value="ja" seleced>日本語</option>
+      <option value="ko">한국어</option>
+      <!-- <option value="pt">Português</option> -->
+      <!-- <option value="ru">Русский</option> -->
+      <option value="zh">中文</option>
+    </select>
+  </div>
 
-  <h1 data-translate="selectSnack">🐾 おやつの選択</h1>
+  <h1 data-translate="selectSnack">おやつの選択</h1>
 
   <!-- おやつ紹介画像（PDFをJPG/PNGに変換した画像ファイル名にしてください） -->
   <img src="./image/snack_menu.png" alt="ネコおやつの紹介">
   <img src="./image/ticket_info.png" alt="チケットの説明">
 
   <!-- 説明文 -->
-  <p class="note">おやつの購入は<strong>任意</strong>です。店内でも現金でご購入いただけます。</p>
-  <p class="note">※受付での両替も可能です。スタッフまでお声かけください。</p>
+  <p class="note" data-translate="snack-optional">おやつの購入は任意です。</p>
+  <p class="note" data-translate="snack-cash">店内でも現金でご購入いただけます。></p>
+  <p class="note" data-translate="snack-exchange">受付での両替も可能です。スタッフにお声がけください。</p>
 
   <!-- フォーム -->
   <form id="snackForm">
-    <label for="snack200">200円おやつ（カリカリ）</label>
+    <label for="snack200" data-translate="crunchy">カリカリおやつ : 1カプセル 200円</label>
     <input type="number" id="snack200" name="snack200" value="0" min="0">
 
-    <label for="snack500">500円おやつ（フラッペ）</label>
+    <label for="snack500" data-translate="Frappe">ネコのフラッペ : 1グラス 500円</label>
     <input type="number" id="snack500" name="snack500" value="0" min="0">
 
-    <label for="ticket600">600円セット（カリカリ＋フラッペ）</label><br>
-    当日限定　200円おやつと５００円おやつ、１種類ずつのセット　100円お得！
+    <label for="ticket600" data-translate="600yen">当日限定 600円おやつセット (カリカリおやつ1個 ＋ ネコのフラッペ1個) 100円お得!!</label><br>
     <input type="number" id="ticket600" name="ticket600" value="0" min="0">
 
-    <label for="ticket1000">1000円回数券（12枚綴り）</label><br>
-    有効期限１ヶ月　200円お得！
+    <label for="ticket1000" data-translate="1000yen">有効期限１ヶ月 12枚回数券：12枚綴りの1000円チケット (100円チケット×12枚分) 200円お得!!</label><br>
     <input type="number" id="ticket1000" name="ticket1000" value="0" min="0">
 
     <div class="footer">
-      <button type="button" id="toCaution">次へ進む</button>
+      <button type="button" id="toCaution" data-translate="nextBtn">次へ進む</button>
     </div>
 
   </form>

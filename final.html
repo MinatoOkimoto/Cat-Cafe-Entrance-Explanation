@@ -4,74 +4,76 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>入園完了画面</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      background: #f5fff5;
-    }
-    h1 {
-      font-size: 24px;
-      color: #2d7a00;
-    }
-    .notice {
-      font-size: 18px;
-      color: #c00;
-      margin-bottom: 10px;
-    }
-    .summary {
-      background: #ffffff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 20px;
-    }
-    .item {
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-    .label {
-      display: inline-block;
-      min-width: 160px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/final.css">
+  <link rel="stylesheet" href="./css/select_language.css">
 </head>
 <body>
-
-  <h1>✅ 入園手続きが完了しました</h1>
-
-  <p class="notice">この画面をスタッフにご提示ください。</p>
-  <p class="notice" style="color: #b00;">※この画面を閉じると、入力情報は消えてしまう場合があります。<br>
-  必要に応じてスクリーンショットを保存してください。</p>
-
-  <h2>アンケート内容まとめ</h2>
-
-  <div class="summary">
-    <div class="item"><span class="label">👶 3歳以下：</span> <span id="age3">-</span> 名</div>
-    <div class="item"><span class="label">🧒 4〜12歳：</span> <span id="age4to12">-</span> 名</div>
-    <div class="item"><span class="label">🧑 13歳以上：</span> <span id="age13">-</span> 名</div>
-    <hr>
-    <div class="item"><span class="label">🍘 200円おやつ：</span> <span id="snack200">-</span> 個</div>
-    <div class="item"><span class="label">🍧 500円おやつ：</span> <span id="snack500">-</span> 個</div>
-    <div class="item"><span class="label">🥤 600円セット：</span> <span id="ticket600">-</span> 個</div>
-    <div class="item"><span class="label">🎫 1000円回数券：</span> <span id="ticket1000">-</span> 個</div>
+  <div class="lang-select-container">
+    <span class="lang-label" data-translate="label-lang">Language：</span>
+    <select id="langSelect">
+      <!-- <option value="ar">العربية</option> -->
+      <!-- <option value="de">Deutsch</option> -->
+      <option value="en">English</option>
+      <!-- <option value="fr">Français</option> -->
+      <!-- <option value="it">Italiano</option> -->
+      <option value="ja" seleced>日本語</option>
+      <option value="ko">한국어</option>
+      <!-- <option value="pt">Português</option> -->
+      <!-- <option value="ru">Русский</option> -->
+      <option value="zh">中文</option>
+    </select>
   </div>
 
-  <script>
-    function displayData(id, key) {
-      const value = localStorage.getItem(key);
-      document.getElementById(id).textContent = value !== null ? value : "0";
-    }
+  <h1 data-translate="ready-enter">入園の準備が完了しました</h1>
 
-    displayData("age3", "age3");
-    displayData("age4to12", "age4to12");
-    displayData("age13", "age13");
+  <p class="notice" data-translate="ready-screen">この画面をスタッフにご提示ください。</p>
+  <p class="notice" id="caution-close-page" data-translate="ready-shot">この画面を閉じると入力情報は消えてしまう場合があります。<br>
+  必要に応じてスクリーンショットを保存してください。</p>
 
-    displayData("snack200", "snack200");
-    displayData("snack500", "snack500");
-    displayData("ticket600", "ticket600");
-    displayData("ticket1000", "ticket1000");
-  </script>
+  <h2 data-translate="summary-title">アンケート内容まとめ</h2>
+
+  <div class="summary">
+    <div class="item">
+      <span class="label" data-translate="summary-under-3-years-old">👶 3歳以下：</span>
+      <span id="age3">-</span>
+      <span data-translate="summary-suffix-people">名</span>
+    </div>
+    <div class="item">
+      <span class="label" data-translate="summary-4-12-years-old">🧒 4〜12歳：</span>
+      <span id="age4to12">-</span>
+      <span data-translate="summary-suffix-people">名</span>
+    </div>
+    <div class="item">
+      <span class="label" data-translate="summary-over-13-years-old">🧑 13歳以上：</span>
+      <span id="age13">-</span>
+      <span data-translate="summary-suffix-people">名</span>
+    </div>
+    <hr>
+    <div class="item">
+      <span class="label" data-translate="summary-200-yen-snack">🍘 200円おやつ：</span>
+      <span id="snack200">-</span>
+      <span data-translate="summary-suffix-item-number">個</span>
+    </div>
+    <div class="item">
+      <span class="label" data-translate="summary-500-yen-snack">🍧 500円おやつ：</span>
+      <span id="snack500">-</span>
+      <span data-translate="summary-suffix-item-number">個</span>
+    </div>
+    <div class="item">
+      <span class="label" data-translate="summary-200-yen-set">🥤 600円セット：</span>
+      <span id="ticket600">-</span>
+      <span data-translate="summary-suffix-item-number">個</span>
+    </div>
+    <div class="item">
+      <span class="label" data-translate="summary-1000-yen-ticket">🎫 1000円回数券：</span>
+      <span id="ticket1000">-</span>
+      <span data-translate="summary-suffix-item-number">個</span>
+    </div>
+  </div>
+
+  <script type="module" src="./js/globals.js"></script>
+  <script type="module" src="./js/lang.js"></script>
+  <script type="module" src="./js/finalController.js"></script>
 
 </body>
 </html>

@@ -4,80 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>入園方法のご案内</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #f9fff9; }
-    h1 { font-size: 24px; margin-bottom: 15px; }
-    .item { margin-bottom: 15px; padding: 10px; background: #fff; border-left: 5px solid #5a5; border-radius: 6px; }
-    label { display: block; margin-top: 8px; }
-    input[type="checkbox"] { margin-right: 8px; }
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/howto_enter.css">
+  <link rel="stylesheet" href="./css/select_language.css">
 </head>
 <body>
+  <div class="lang-select-container">
+    <span class="lang-label" data-translate="label-lang">Language：</span>
+    <select id="langSelect">
+      <!-- <option value="ar">العربية</option> -->
+      <!-- <option value="de">Deutsch</option> -->
+      <option value="en">English</option>
+      <!-- <option value="fr">Français</option> -->
+      <!-- <option value="it">Italiano</option> -->
+      <option value="ja" seleced>日本語</option>
+      <option value="ko">한국어</option>
+      <!-- <option value="pt">Português</option> -->
+      <!-- <option value="ru">Русский</option> -->
+      <option value="zh">中文</option>
+    </select>
+  </div>
 
-  <h1>🐾 入園方法のご案内</h1>
+  <h1>
+    <span data-translate="howto-enter1">入園方法のご案内</span>
+    <strong><span id="reccomend_screenshot" data-translate="howto-enter2">（スクリーンショット推奨）</span></strong>
+  </h1>
 
   <div class="item">
-    <strong>① 画面提示</strong>
-    <label><input type="checkbox" class="check"> 受付で最後の画面を提示してください</label>
+    <strong><span data-translate="enter-screen1">① 画面提示</span></strong>
+    <label class="checkbox-label">
+      <input type="checkbox" class="check">
+      <div class="text-block">
+        <span data-translate="enter-screen2">
+          受付で最後の画面を提示してください
+        </span>
+      </div>
+    </label>
   </div>
 
   <div class="item">
-    <strong>② ドリンクの注文</strong>
-    <label><input type="checkbox" class="check"> ドリンクの注文をお願いします（ワンドリンク制です）。</label>
+    <strong><span data-translate="enter-drink1">② ドリンクの注文</span></strong>
+    <label class="checkbox-label">
+      <input type="checkbox" class="check">
+      <div class="text-block">
+        <span data-translate="enter-drink2">
+          ワンドリンク制になるので、1人1つ以上のドリンクをメニューの中から注文してください。
+        </span>
+      </div>
+    </label>
   </div>
 
   <div class="item">
-    <strong>③ ドリンクベルについて</strong>
-    <label><input type="checkbox" class="check"> ドリンクの準備ができましたら音が鳴るので、店内左奥にあるカフェカウンターに受付カードと一緒にお持ちください。</label>
+    <strong><span data-translate="enter-bell1">③ ドリンクベルについて</span></strong>
+    <label class="checkbox-label">
+      <input type="checkbox" class="check">
+      <div class="text-block">
+        <span data-translate="enter-bell2">
+          ドリンクの準備ができましたらベルが鳴るので、店内左奥にあるカフェカウンターに受付カードと一緒にお持ちください。
+        </span>
+      </div>
+    </label>
   </div>
 
   <div class="item">
-    <strong>④ ロッカーについて</strong><br>
-    <label><input type="checkbox" class="check"> ロッカーの鍵を受付カードに付けます。指定された番号のロッカーに靴と荷物を入れてください。</label><br>
-    ※ロッカーに入りきれない荷物や大きな荷物は受付でお預かりいたします。気軽にお声がけください。
+    <strong><span data-translate="enter-locker1">④ ロッカーについて</span></strong>
+    <label class="checkbox-label">
+      <input type="checkbox" class="check">
+      <div class="text-block">
+        <span data-translate="enter-locker2">
+          ロッカーの鍵を受付でもらいます。指定された番号のロッカーに靴と荷物を入れてください。
+        </span><br>
+        <span data-translate="enter-locker3">
+          ロッカーに入りきれない荷物や大きな荷物は受付でお預かりいたします。気軽にスタッフにお声がけください。
+        </span>
+      </div>
+    </label>
   </div>
 
   <div class="item">
-    <strong>⑤ スリッパへの履き替え</strong>
-    <label><input type="checkbox" class="check"> ロッカー室の右側に３種類のスリッパがあります。必ず履き替えてからご入園ください。</label>
+    <strong><span data-translate="enter-slippers1">⑤ スリッパへの履き替え</span></strong>
+    <label class="checkbox-label">
+      <input type="checkbox" class="check">
+      <div class="text-block">
+        <span data-translate="enter-slippers2">
+          ロッカー室の右側に３種類のスリッパがあります。（普通サイズ・大きいサイズ・お子様サイズ）必ず履き替えてからご入園ください。
+        </span>
+      </div>
+    </label>
   </div>
 
   <div class="item">
-    <strong>⑥ 二重扉について</strong>
-    <label><input type="checkbox" class="check"> 猫の脱走防止のために二重扉にしています。必ず片方の扉を閉めてから次の扉を開けてください。</label>
+    <strong><span data-translate="enter-door1">⑥ 二重扉について</span></strong>
+    <label class="checkbox-label">
+      <input type="checkbox" class="check">
+      <div class="text-block">
+        <span data-translate="enter-door2">
+          猫の脱走防止のために二重扉にしています。必ず片方の扉が閉まっていることを確認してから次の扉を開けてください。
+        </span>
+      </div>
+    </label>
   </div>
 
-  <button id="finishBtn" disabled>次へ進む</button>
+  <button id="finishBtn" disabled data-translate="nextBtn">次へ進む</button>
 
-  <script>
-    const checkboxes = document.querySelectorAll(".check");
-    const finishBtn = document.getElementById("finishBtn");
-
-    function validate() {
-      const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-      finishBtn.disabled = !allChecked;
-    }
-
-    checkboxes.forEach(cb => cb.addEventListener("change", validate));
-
-    finishBtn.addEventListener("click", () => {
-      window.location.href = "final.html"; // ← 最後の完了画面に変更してください
-    });
-  </script>
+  <script type="module" src="./js/globals.js"></script>
+  <script type="module" src="./js/lang.js"></script>
+  <script type="module" src="./js/howto_enterController.js"></script>
 
 </body>
 </html>

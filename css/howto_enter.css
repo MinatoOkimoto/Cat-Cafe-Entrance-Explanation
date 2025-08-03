@@ -1,0 +1,37 @@
+body { font-family: sans-serif; padding: 20px; background: #f9fff9; }
+h1 { font-size: 24px; margin-bottom: 15px; }
+
+#reccomend_screenshot { color: #b00; }
+
+.item { margin-bottom: 15px; padding: 10px; background: #fff; border-left: 5px solid #5a5; border-radius: 6px; }
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 4px; /* テキストと縦位置を揃える微調整 */
+}
+
+.checkbox-label .text-block {
+  line-height: 1.5;
+}
+
+input[type="checkbox"] { margin-right: 8px; }
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #77dee4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

@@ -8,10 +8,6 @@ langSelect.addEventListener("change", () => {
 });
 
 document.getElementById("toCaution").addEventListener("click", function() {
-    window.location.href = "caution.html";
-});
-
-document.getElementById("toCaution").addEventListener("click", function() {
     localStorage.setItem("snack200", document.getElementById("snack200").value);
     localStorage.setItem("snack500", document.getElementById("snack500").value);
     localStorage.setItem("ticket600", document.getElementById("ticket600").value);

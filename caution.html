@@ -4,93 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>注意事項・免責事項</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #fffef9; }
-    h1 { font-size: 24px; margin-bottom: 10px; }
-    ul { margin-bottom: 20px; }
-    label { display: block; margin-bottom: 10px; }
-    .checkbox { margin-bottom: 10px; }
-    button {
-      padding: 10px 20px; background: #6666cc; color: white;
-      border: none; border-radius: 6px; font-size: 16px;
-    }
-    button:disabled { background: #ccc; }
-  </style>
+  <link rel="stylesheet" href="./css/caution.css">
+  <link rel="stylesheet" href="./css/select_language.css">
 </head>
 <body>
+  <div class="lang-select-container">
+    <span class="lang-label" data-translate="label-lang">Language：</span>
+    <select id="langSelect">
+      <!-- <option value="ar">العربية</option> -->
+      <!-- <option value="de">Deutsch</option> -->
+      <option value="en">English</option>
+      <!-- <option value="fr">Français</option> -->
+      <!-- <option value="it">Italiano</option> -->
+      <option value="ja" seleced>日本語</option>
+      <option value="ko">한국어</option>
+      <!-- <option value="pt">Português</option> -->
+      <!-- <option value="ru">Русский</option> -->
+      <option value="zh">中文</option>
+    </select>
+  </div>
 
-  <h1>⚠️ 注意事項の確認　⚠️</h1>
+  <h1 data-translate="Caution">注意事項の確認</h1>
 
   <ul>
-    <li>お客様と動物の安全のため、次のことを必ずお約束の上、ご入園ください</li>
-    <li>入園・退園時は手指の消毒を行なってください。</li>
-    <li>お子様から目を離さないでください。</li>
-    <li>写真撮影時はフラッシュをOFFにしてください</li>
-    <li>動物の抱っこは出来ません。</li>
-    <li>飲食物のお持ち込みは出来ません。</li>
-    <li>動物の嫌がる行為（大声を出す・追いかける・無理に触る・叩く）はしないでください。</li>
-    <li>動物の口の前に手を出すと噛まれる恐れがあります。おやつを与える際は必ずスプーンをご使用ください。</li>
-    <li>動物とふれあう前は、必ず掲示してある注意事項・ふれあい方をご確認ください。</li>
-    <li>再入園は出来ません。</li>
+    <li data-translate="review">お客様と動物の安全のため、次のことを必ずお約束の上、ご入園ください</li>
+    <li data-translate="sanitize">入園・退園時は手指の消毒を行なってください。</li>
+    <li data-translate="watch-cild">お子様から目を離さないでください。</li>
+    <li data-translate="flash-off">写真撮影時はフラッシュをOFFにしてください</li>
+    <li data-translate="no-held">動物の抱っこは出来ません。</li>
+    <li data-translate="no-allowed">飲食物のお持ち込みは出来ません。</li>
+    <li data-translate="not-engage">動物の嫌がる行為（大声を出す・追いかける・無理に触る・叩く）はしないでください。</li>
+    <li data-translate="mouth">動物の口の前に手を出すと噛まれる恐れがあります。おやつを与える際は必ずスプーンをご使用ください。</li>
+    <li data-translate="interact-animals">動物とふれあう前は、必ず掲示してある注意事項・ふれあい方をご確認ください。</li>
+    <li data-translate="not-reentry">再入園は出来ません。</li>
   </ul>
 
-  <h2>⚠️ 免責事項の確認　⚠️</h2>
+  <h2 data-translate="Disclaimer">免責事項の確認</h2>
 
   <ul>
-    <li>下記の免責事項を必ずご確認いただき、ご同意の上でご入園ください。</li>
-    <li>動物に噛まれたり、引っ掻かれたりすることがございます。</li>
-    <li>応急処置は行いますが、ケガについての一切の補償はいたしかねます。</li>
+    <li data-translate="agree">下記の免責事項を必ずご確認いただき、ご同意の上でご入園ください。</li>
+    <li data-translate="disclaimer-scratch">動物に噛まれたり、引っ掻かれたりすることがございます。</li>
+    <li data-translate="disclaimer-damage">応急処置は行いますが、ケガについての一切の補償はいたしかねます。</li>
 
-    <li>動物アレルギーをお持ちのお客さまは十分ご注意の上、自己責任でご利用をお願いいたします。</li>
+    <li data-translate="disclaimer-allergies">動物アレルギーをお持ちのお客さまは十分ご注意の上、自己責任でご利用をお願いいたします。</li>
 
-    <li>衣服などの汚損や破損については一切補償をいたしかねます。</li>
-    <li>お手荷物や上着類の保管は、お客様用ロッカーをご利用ください。</li>
+    <li data-translate="disclaimer-clothing">衣服などの汚損や破損については一切補償をいたしかねます。</li>
+    <li data-translate="disclaimer-bags">お手荷物や上着類の保管は、お客様用ロッカーをご利用ください。</li>
 
-    <li>貴重品はお客さま自身で管理をお願いいたします。</li>
-    <li>万が一の盗難・紛失などについては一切補償をいたしかねます。</li>
+    <li data-translate="disclaimer-valuables">貴重品はお客さま自身で管理をお願いいたします。</li>
+    <li data-translate="disclaimer-loss">万が一の盗難・紛失などについては一切補償をいたしかねます。</li>
   </ul>
 
   <form id="checkForm">
     <label class="checkbox">
-      <input type="checkbox" id="check1"> 店内のルールを守ることに同意します
+      <input type="checkbox" id="check1">
+      <span data-translate="check-agree">店内のルールを守ることに同意します</span>
     </label>
     <label class="checkbox">
-      <input type="checkbox" id="check2"> ネコへの接し方を理解し、丁寧に接します
+      <input type="checkbox" id="check2">
+      <span data-translate="check-understand">ネコへの接し方を理解し、嫌がる行為はしません</span>
     </label>
     <label class="checkbox">
-      <input type="checkbox" id="check3"> 免責事項に同意します
+      <input type="checkbox" id="check3">
+      <span data-translate="check-disclaimer">免責事項に同意します</span>
     </label>
     <label class="checkbox">
-      <input type="checkbox" id="check4">店内ルール・免責事項を守れない場合は退店をお願いすることがあります
+      <input type="checkbox" id="check4">
+      <span data-translate="check-leave">店内ルール・免責事項を守れない場合は退店をお願いする場合があります</span>
     </label>
 
-    <button type="submit" id="nextBtn" disabled>次へ進む</button>
+    <button type="submit" id="nextBtn" data-translate="nextBtn" disabled>次へ進む</button>
   </form>
 
-  <script>
-    const check1 = document.getElementById("check1");
-    const check2 = document.getElementById("check2");
-    const check3 = document.getElementById("check3");
-    const nextBtn = document.getElementById("nextBtn");
-
-    function validate() {
-      if (check1.checked && check2.checked && check3.checked) {
-        nextBtn.disabled = false;
-      } else {
-        nextBtn.disabled = true;
-      }
-    }
-
-    check1.addEventListener("change", validate);
-    check2.addEventListener("change", validate);
-    check3.addEventListener("change", validate);
-
-    document.getElementById("checkForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      // 次のページに遷移（例：最終確認 or チェックイン）
-      window.location.href = "collar.html";
-    });
-  </script>
+  <script type="module" src="./js/globals.js"></script>
+  <script type="module" src="./js/lang.js"></script>
+  <script type="module" src="./js/cautionController.js"></script>
 
 </body>
 </html>

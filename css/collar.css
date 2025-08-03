@@ -1,0 +1,18 @@
+body { font-family: sans-serif; padding: 20px; background: #f9f9ff; }
+h1 { font-size: 24px; margin-bottom: 10px; }
+.collar-box { margin-bottom: 15px; padding: 10px; border-left: 6px solid; background: #fff; border-radius: 6px; }
+.red { border-color: red; }
+.blue { border-color: blue; }
+.yellow { border-color: goldenrod; }
+.none { border-color: gray; }
+.collar-box span { font-weight: bold; font-size: 16px; }
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

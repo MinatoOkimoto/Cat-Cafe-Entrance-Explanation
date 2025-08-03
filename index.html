@@ -4,46 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>入園手続き</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #fff8f0; }
-    h1 { font-size: 24px; }
-    img { max-width: 100%; margin-bottom: 10px; }
-    label { display: block; margin: 10px 0 5px; }
-    input { padding: 8px; width: 100%; margin-bottom: 10px; }
-    .error { color: red; font-weight: bold; }
-    button {
-      padding: 10px 20px;
-      background: #f77;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    button:disabled {
-      background: #ccc;
-    }
-    #langSelect {
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/select_language.css">
 </head>
 <body>
+  <div class="header">
+    <h1 id="title" data-translate="title">入園手続き</h1>
 
-  <select id="langSelect">
-    <option value="ar">العربية</option>
-    <option value="de">Deutsch</option>
-    <option value="en">English</option>
-    <option value="fr">Français</option>
-    <option value="it">Italiano</option>
-    <option value="ja" seleced>日本語</option>
-    <option value="ko">한국어</option>
-    <option value="pt">Português</option>
-    <option value="ru">Русский</option>
-    <option value="zh">中文</option>
-  </select>
-
-  <h1 id="title" data-translate="title">入園手続き</h1>
+    <div class="lang-select-container">
+      <span class="lang-label" data-translate="label-lang">Language：</span>
+      <select id="langSelect">
+        <!-- <option value="ar">العربية</option> -->
+        <!-- <option value="de">Deutsch</option> -->
+        <option value="en">English</option>
+        <!-- <option value="fr">Français</option> -->
+        <!-- <option value="it">Italiano</option> -->
+        <option value="ja" seleced>日本語</option>
+        <option value="ko">한국어</option>
+        <!-- <option value="pt">Português</option> -->
+        <!-- <option value="ru">Русский</option> -->
+        <option value="zh">中文</option>
+      </select>
+    </div>
+  </div>
 
   <img src="./image/price_info.png" alt="入園料金の案内画像">
 
@@ -51,6 +34,14 @@
     <li data-translate="min-price">最低料金：900円／30分</li>
     <li data-translate="extension-fee">延長料金：10分ごとに250円</li>
     <li data-translate="drink-order">ワンドリンクオーダー制（3歳以下は任意）</li>
+    <li data-translate="Maximum"></li>
+      <ul>
+        <li data-translate="Maximum-sub-1"></li>
+        <li data-translate="Maximum-sub-2"></li>
+      </ul>
+    <li data-translate="not-re-retry">再入園は出来ません</li>
+    <li data-translate="guardian">12歳以下のお客様は、保護者(18歳以上)の同伴(有料)が必要です。</li>
+    <li data-translate="guardian-child">保護者1人につきお子様は3名まで</li>
   </ul>
 
   <h2 id="inputHeader" data-translate="inputHeader">人数を入力してください</h2>

@@ -1,0 +1,10 @@
+body { font-family: sans-serif; padding: 20px; background: #fffef9; }
+h1 { font-size: 24px; margin-bottom: 10px; }
+ul { margin-bottom: 20px; }
+label { display: block; margin-bottom: 10px; }
+.checkbox { margin-bottom: 10px; }
+button {
+    padding: 10px 20px; background: #6666cc; color: white;
+    border: none; border-radius: 6px; font-size: 16px;
+}
+button:disabled { background: #ccc; }

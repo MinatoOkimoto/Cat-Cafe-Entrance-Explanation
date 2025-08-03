@@ -1,0 +1,39 @@
+.header {
+    position: relative;
+    padding: 20px 20px 0 20px;
+}
+
+#title {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.lang-select-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.lang-label {
+    color: #333;
+}
+
+#langSelect {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+#langSelect:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 3px rgba(102, 175, 233, 0.6);
+}

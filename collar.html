@@ -4,59 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>首輪の説明</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; background: #f9f9ff; }
-    h1 { font-size: 24px; margin-bottom: 10px; }
-    .collar-box { margin-bottom: 15px; padding: 10px; border-left: 6px solid; background: #fff; border-radius: 6px; }
-    .red { border-color: red; }
-    .blue { border-color: blue; }
-    .yellow { border-color: goldenrod; }
-    .none { border-color: gray; }
-    .collar-box span { font-weight: bold; font-size: 16px; }
-    button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/collar.css">
+  <link rel="stylesheet" href="./css/select_language.css">
 </head>
 <body>
-
-  <h1>🐾 首輪の色について</h1>
-
-  <div class="collar-box red">
-    <span>🔴 赤色の首輪：</span> 触らないでください<br>
-    ふれあいのトレーニング中です。触ると、噛んだり引っ掻いたりすることがあります。<br>
-    写真を撮ったり、おやつをあげてお楽しみください。
+  <div class="lang-select-container">
+    <span class="lang-label" data-translate="label-lang">Language：</span>
+    <select id="langSelect">
+      <!-- <option value="ar">العربية</option> -->
+      <!-- <option value="de">Deutsch</option> -->
+      <option value="en">English</option>
+      <!-- <option value="fr">Français</option> -->
+      <!-- <option value="it">Italiano</option> -->
+      <option value="ja" seleced>日本語</option>
+      <option value="ko">한국어</option>
+      <!-- <option value="pt">Português</option> -->
+      <!-- <option value="ru">Русский</option> -->
+      <option value="zh">中文</option>
+    </select>
   </div>
 
-  <div class="collar-box blue">
-    <span>🔵 青色の首輪：</span> おやつ注意<br>
-    おやつが大好きな猫です。おやつを与える際に、歯があたることがあるのでご注意ください。
-  </div>
-
-  <div class="collar-box yellow">
-    <span>🟡 黄色の首輪：</span> おやつNG<br>
-    体調管理中で、他の猫とご飯が異なります。おやつは与えないようにお願いします。
-  </div>
+  <h1 data-translate="Collar">首輪の色について</h1>
 
   <div class="collar-box none">
-    <span>⚪️ 首輪なし：</span> ふれあいOK・おやつOK<br>
-    ふれあいOK・おやつOK・観察OK ただし、嫌がる際はそっと観察をしてください
+    <span data-translate="no-collar1"> ⚪️ 首輪なし：</span>
+    <span data-translate="no-collar2">ふれあいOK・おやつOK・観察OK</span><br>
+    <span data-translate="no-collar3">ただし、嫌がる際はそっと観察をしてください</span>
   </div>
 
-  <button id="confirmBtn">確認しました</button>
+  <div class="collar-box red"><data-translate="red-collar">
+    <span data-translate="red-collar1">🔴 赤色の首輪：</span>
+    <span data-translate="red-collar2">触らないでください</span><br>
+    <span data-translate="red-collar3">ふれあいのトレーニング中です。触ると、噛んだり引っ掻いたりすることがあります。</span><br>
+    <span data-translate="red-collar4">写真を撮ったり、おやつをあげてお楽しみください。</span>
+  </div>
 
-  <script>
-    document.getElementById("confirmBtn").addEventListener("click", function() {
-      window.location.href = "howto_enter.html"; // ← 次のページに差し替えてください
-    });
-  </script>
+  <div class="collar-box blue"><data-translate="blue-collar">
+    <span data-translate="blue-collar1">🔵 青色の首輪：</span>
+    <span data-translate="blue-collar2">おやつ注意</span><br>
+    <span data-translate="blue-collar3">おやつが大好きな猫です。おやつを与える際に、歯があたることがあるのでご注意ください。</span>
+  </div>
+
+  <div class="collar-box yellow"><data-translate="yellow-collar">
+    <span data-translate="yellow-collar1">🟡 黄色の首輪：</span>
+    <span data-translate="yellow-collar2">おやつNG</span><br>
+    <span data-translate="yellow-collar3">体調管理中で、他の猫とご飯が異なります。おやつは与えないようにお願いします。</span>
+  </div>
+
+  <button id="confirmBtn" data-translate="collar-get">理解しました</button>
+
+  <script type="module" src="./js/globals.js"></script>
+  <script type="module" src="./js/lang.js"></script>
+  <script type="module" src="./js/collarController.js"></script>
 
 </body>
 </html>

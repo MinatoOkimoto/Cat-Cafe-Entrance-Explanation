@@ -1,8 +1,4 @@
-body {
-    font-family: sans-serif;
-    padding: 20px;
-    background: #f5fff5;
-}
+body { font-family: sans-serif; padding: 20px; background: #f9f9ff; }
 h1 {
     font-size: 24px;
     color: #2d7a00;
@@ -29,3 +25,5 @@ h1 {
 }
 
 #caution-close-page{ color: #b00; }
+
+button { padding: 10px 20px; background: #77c; color: white; border: none; border-radius: 6px; font-size: 16px; }

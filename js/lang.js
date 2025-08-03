@@ -50,3 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     loadLanguage(selectedLang);                 // 表示を更新
   });
 });
+
+const openLangPopup = document.getElementById("openLangPopup");
+const closeLangPopup = document.getElementById("closeLangPopup");
+const languagePopup = document.getElementById("languagePopup");
+
+openLangPopup.addEventListener("click", () => {
+  languagePopup.style.display = "flex";
+});
+
+closeLangPopup.addEventListener("click", () => {
+  languagePopup.style.display = "none";
+});

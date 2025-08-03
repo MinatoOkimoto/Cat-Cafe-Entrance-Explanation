@@ -1,4 +1,4 @@
-body { font-family: sans-serif; padding: 20px; background: #f9fff9; }
+body { font-family: sans-serif; padding: 20px; background: #f9f9ff; }
 h1 { font-size: 24px; margin-bottom: 15px; }
 
 #reccomend_screenshot { color: #b00; }
@@ -21,16 +21,7 @@ h1 { font-size: 24px; margin-bottom: 15px; }
 }
 
 input[type="checkbox"] { margin-right: 8px; }
-button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #77dee4;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
+button { padding: 10px 20px; background: #77c; color: white; border: none; border-radius: 6px; font-size: 16px; }
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;

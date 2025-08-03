@@ -11,20 +11,35 @@
   <div class="header">
     <h1 id="title" data-translate="title">入園手続き</h1>
 
-    <div class="lang-select-container">
-      <span class="lang-label" data-translate="label-lang">Language</span>
-      <select id="langSelect">
-        <!-- <option value="ar">العربية</option> -->
-        <!-- <option value="de">Deutsch</option> -->
-        <option value="en">English</option>
-        <!-- <option value="fr">Français</option> -->
-        <!-- <option value="it">Italiano</option> -->
-        <option value="ja" seleced>日本語</option>
-        <option value="ko">한국어</option>
-        <!-- <option value="pt">Português</option> -->
-        <!-- <option value="ru">Русский</option> -->
-        <option value="zh">中文</option>
-      </select>
+    <!-- 言語選択ボタン（右上表示） -->
+    <div class="lang-select-button">
+      <button id="openLangPopup">🌐 Language</button>
+    </div>
+
+    <!-- 言語選択ポップアップ -->
+    <div id="languagePopup" class="popup-overlay" style="display: none;">
+      <div class="popup-content">
+        <h2 data-translate="choose-lang">
+          言語を選択してください。<br>
+          Please select your language.<br>
+          언어를 선택해 주세요.<br>
+          请选择语言。
+        </h2>
+        <select id="langSelect">
+          <!-- <option value="ar">العربية</option> -->
+          <!-- <option value="de">Deutsch</option> -->
+          <option value="en">English</option>
+          <!-- <option value="fr">Français</option> -->
+          <!-- <option value="it">Italiano</option> -->
+          <option value="ja" seleced>日本語</option>
+          <option value="ko">한국어</option>
+          <!-- <option value="pt">Português</option> -->
+          <!-- <option value="ru">Русский</option> -->
+          <option value="zh">中文</option>
+        </select>
+        <br />
+        <button id="closeLangPopup">OK</button>
+      </div>
     </div>
   </div>
 

@@ -6,13 +6,4 @@ h1 { font-size: 24px; margin-bottom: 10px; }
 .yellow { border-color: goldenrod; }
 .none { border-color: gray; }
 .collar-box span { font-weight: bold; font-size: 16px; }
-button {
-    margin-top: 20px;
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
+button { padding: 10px 20px; background: #77c; color: white; border: none; border-radius: 6px; font-size: 16px; }

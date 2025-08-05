@@ -1,6 +1,6 @@
 function displayData(id, key) {
     const value = localStorage.getItem(key);
-    document.getElementById(id).textContent = value !== null ? value : "0";
+    document.getElementById(id).textContent = value ? value : "0";
 }
 
 displayData("age3", "age3");

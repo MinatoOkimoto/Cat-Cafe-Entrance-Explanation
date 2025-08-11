@@ -86,13 +86,13 @@
     "ready-screen":"이 화면을 직원에게 보여주세요.",
     "ready-shot":"이 화면을 닫으면 입력 정보가 사라질 수 있으니 필요 시 스크린샷을 저장해주세요.",
     "summary-title":"설문조사 내용",
-    "summary-under-3-years-old":"👶 만 3세 이하:",
-    "summary-4-12-years-old":"🧒 4~12세 아동:",
-    "summary-over-13-years-old":"🧑 13세 이상:",
-    "summary-200-yen-snack":"🍘 200엔 바삭바삭 간식:",
+    "summary-under-3-years-old":"👶 만 3세 이하：",
+    "summary-4-12-years-old":"🧒 4~12세 아동：",
+    "summary-over-13-years-old":"🧑 13세 이상：",
+    "summary-200-yen-snack":"🍘 200엔 바삭바삭 간식：",
     "summary-500-yen-snack":"🍧 500엔 고양이 젤리：",
     "summary-200-yen-set":"🥤 600엔 간식 세트：",
-    "summary-1000-yen-ticket":"🎫 1000엔 회수권:",
+    "summary-1000-yen-ticket":"🎫 1000엔 회수권：",
     "summary-suffix-people":"사람",
     "summary-suffix-item-number":"수"
 }
